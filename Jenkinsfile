@@ -1,8 +1,4 @@
 node{    
-        tools { 
-            maven 'Maven 3.6.3'
-            jdk 'JDK 9.0.4'
-        }
         stage ('clone') {
             sh 'git clone "https://github.com/chamseddinechrifa/Chams-Diary.git"'
             }
@@ -19,6 +15,4 @@ node{
             echo "pack the code"
             sh 'cd Chams-Diary && mvn package'
             }
-        
-
 }
