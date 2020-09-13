@@ -6,9 +6,11 @@ node{
             sh 'cd Chams-Diary && mvn clean'
             }
         stage ('Build') {
+            agent { label 'master' }
             sh 'cd Chams-Diary && mvn compile'
             }
         stage ('Test') {
+            agent any
             sh 'cd Chams-Diary && mvn test'
             }
         stage ('Package') {
