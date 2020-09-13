@@ -4,15 +4,7 @@ node {
         }
 
         stage ('Build') {
-                sh label: '', script: 'sh \'mvn compile\''
+                def mvnHome = tool name: 'maven-3' , type: 'maven' 
+                sh "${mvnHome}/bin/mvn package"
         }
-        stage ('Test unitaire') {
-                echo "Test the code with unit test" 
-                sh 'mvn test'
-        }
-        stage ('package') {
-                echo "pack the code" 
-                sh 'mvn package'
-        }
-    
 }
