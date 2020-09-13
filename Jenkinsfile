@@ -1,26 +1,24 @@
-pipeline{
-        agent any     
+node{    
         tools { 
-                maven 'Maven 3.6.3' 
-                jdk 'jdk11' 
+            maven 'Maven 3.6.3'
+            jdk 'JDK 9.0.4'
         }
-        stages {
-                stage ('clone') {
-                     sh label: '', script: 'git clone "https://github.com/chamseddinechrifa/Chams-Diary.git"'
-                }
-
-                stage ('Build') {
-                     sh 'mvn package'
-                }
-                stage ('Test unitaire') {
-                      echo "Test the code with unit test" 
-                      sh 'mvn test'
-                }
-                stage ('package') {
-                      echo "pack the code" 
-                      sh 'mvn package'
-                }
-   
+        stage ('clone') {
+            sh 'git clone "https://github.com/chamseddinechrifa/Chams-Diary.git"'
+            }
+        stage ('Clean') {
+            sh 'cd Chams-Diary && mvn clean'
+            }
+        stage ('Build') {
+            sh 'cd Chams-Diary && mvn compile'
+            }
+        stage ('Test') {
+            sh 'cd Chams-Diary && mvn test'
+            }
+        stage ('Package') {
+            echo "pack the code"
+            sh 'cd Chams-Diary && mvn package'
+            }
         }
 
 }
