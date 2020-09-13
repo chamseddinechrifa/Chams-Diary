@@ -19,6 +19,6 @@ node{
             echo "pack the code"
             sh 'cd Chams-Diary && mvn package'
             }
-        }
+        
 
 }
