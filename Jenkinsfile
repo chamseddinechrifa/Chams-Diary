@@ -45,7 +45,7 @@ pipeline {
                     }
                     steps {
                                 echo "Test the code on slave"
-                                sh 'cd /var/lib/jenkins/workspace/Chams-Diary pipeline/Chams-Diary && mvn test'
+                                sh 'cd "/var/lib/jenkins/workspace/Chams-Diary pipeline/Chams-Diary" && ls && mvn test'
                     }
 
                 }
