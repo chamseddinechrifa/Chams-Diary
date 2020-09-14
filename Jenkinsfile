@@ -18,7 +18,7 @@ node{
                                  sh 'cd Chams-Diary && mvn test'
             }
             }    
-            node('slave'){
+            node('Slave'){
                  stage ('Test_2') {
                                  echo "Test the code"
                                  sh 'cd Chams-Diary && mvn test'
