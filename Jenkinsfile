@@ -1,4 +1,4 @@
-node{    
+node('master'){    
         stage ('clone') {
             echo "Pull the code from Github"
             sh 'git clone "https://github.com/chamseddinechrifa/Chams-Diary.git"'
@@ -19,4 +19,11 @@ node{
             echo "Pack the code"
             sh 'cd Chams-Diary && mvn package'
             }
+}
+node('slave'){
+        stage ('Test') {
+            echo "Test the code"
+            sh 'cd Chams-Diary && mvn test'
+            }
+
 }
