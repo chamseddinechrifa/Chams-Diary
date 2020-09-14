@@ -49,6 +49,7 @@ pipeline {
 
                 }
             }
+            }
     stage ('Package') {
       agent {
         label master
