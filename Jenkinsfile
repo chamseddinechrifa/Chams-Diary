@@ -8,7 +8,8 @@ pipeline {
       steps {
           echo "Pull the code from Github"
           sh 'git clone "https://github.com/chamseddinechrifa/Chams-Diary.git"'
-      }
+            }
+    }
     stage ('Clean') {
       agent {
         label master
