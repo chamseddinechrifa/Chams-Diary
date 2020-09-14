@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('clone') {
       agent {
-        label master
+        label 'master'
       }
       steps {
           echo "Pull the code from Github"
@@ -12,7 +12,7 @@ pipeline {
     }
     stage ('Clean') {
       agent {
-        label master
+        label 'master'
       }
       steps {      
             echo "Clean the code"
@@ -21,7 +21,7 @@ pipeline {
       }
     stage ('Build') {
       agent {
-        label master
+        label 'master'
       }
       steps {      
             echo "Build the code"
@@ -32,7 +32,7 @@ pipeline {
             parallel {
                 stage('Test On master') {
                     agent {
-                        label master
+                        label 'master'
                     }
                     steps {
                                  echo "Test the code on master"
@@ -41,7 +41,7 @@ pipeline {
                 }
                 stage('Test On slave') {
                     agent {
-                        label slave
+                        label 'slave'
                     }
                     steps {
                                 echo "Test the code on slave"
@@ -53,7 +53,7 @@ pipeline {
             }
     stage ('Package') {
       agent {
-        label master
+        label 'master'
       }
       steps {      
             echo "Pack the code"
